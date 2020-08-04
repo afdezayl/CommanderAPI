@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  sqlServerDB:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: commander_sqlserver2019
+    ports:
+      - 4444:1433
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: SecretPassword1!
+    volumes:
+      - commander-data:/var/opt/mssql
+volumes:
+    commander-data:
